@@ -1,4 +1,4 @@
-import React from "react";
+import React,{useState} from "react";
 import styled from "styled-components";
 import contactBg from "../images/contact-img.jpg";
 import Intro from "./map.tsx";
@@ -212,7 +212,10 @@ const FormContainer = styled.div`
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 `;
 
-
+const InputCont = styled.div` 
+  position: relative;
+  width: fit-content;
+`;
 const Form = styled.form`
   display: flex;
   flex-wrap: wrap;
@@ -222,24 +225,59 @@ const Form = styled.form`
   row-gap: 1.5vw;
   margin: 0;
   background-color: transparent;
-`;
 
-
-const InputCont = styled.div` 
-  position: relative;
-  width: auto;
-`;
-const InputCont1 = styled.div`
-  position: relative;
-  width: 100%;
-`;
-const InName = styled.div`
-  position: absolute;
+  label{
+     position: absolute;
+     font-family: 'source sans 3';
   top: .6vw;
   left: .8vw;
   z-index: 0;
+  opacity: .8;
   color: #454545;
+  transition: all ease .5s;
+  }
+
+  .line1 input{ 
+    position: relative;
+  background-color: #00000000;
+  padding: .8vw;
+  width: 17.3vw;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: .8vw;
+  z-index: 1;  
+  }
+  &:focus {
+    outline: none;
+    border-color: #2f9cda;
+  }
+  
+  .line2{
+    width: 100%;
+  }
+
+  .line2 input{
+    background-color: #00000000;
+  padding: .8vw;
+  font-size: 1rem;
+  width: 95.5%;
+  border: 1px solid #ccc;
+  border-radius: .8vw;
+  z-index: 1;
+  }
+  &:focus {
+    outline: none;
+    border-color: #2f9cda;
+  }
+.active{
+  top: -1.1vw;
+  font-size: .9vw;
+}
 `;
+
+
+
+
 
 const Selection1 = styled.select`
 position: relative;
@@ -251,6 +289,7 @@ position: relative;
   background: #00000000;
   z-index: 1;
 `;
+
 
 const Input1 = styled.input`
   position: relative;
@@ -313,6 +352,28 @@ const Button = styled.button`
 
 // ContactUs Component
 const ContactUs = () => {
+  const [fields, setFields] = useState({
+    fullName: "", // Initialize all fields as empty strings
+    mobileNumber: "",
+    jobTitle: "",
+    organization: "",
+    emailId: "",
+    selectOption:""
+  });
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFields({ ...fields, [name]: value });
+  };
+
+  const isActive = (fieldName) => fields[fieldName].trim().length > 0;
+
+  const handleNumber = (e) => {
+    // Allow only numbers
+    const value = e.target.value;
+    // Replace any non-numeric character
+    e.target.value = value.replace(/[^0-9]/g, "");
+  };
   return (
     <>
     <ContactSection>
@@ -390,29 +451,29 @@ const ContactUs = () => {
             <FormContainer>
               
               <Form>
-                <InputCont>
-                <InName>Full Name:</InName>
-                <Input1 type="text"/>
+                <InputCont className="line1">
+                <label className={`label ${isActive("fullName") ? "active" : ""}`}>Full Name:</label>
+                <input type="text" name="fullName" value={fields.fullName} onChange={handleInputChange} onFocus={() => {}} />
                 </InputCont>
-                <InputCont>
-                <InName>Mobile Number:</InName>
-                <Input1 type="number" inputMode="numeric" style={{ appearance: "textfield" }} />
+                <InputCont className="line1">
+                <label className={`label ${isActive("mobileNumber") ? "active" : ""}`}>Mobile Number:</label>
+                <input type="text" name="mobileNumber" value={fields.mobileNumber} onChange={handleInputChange} onInput={handleNumber} />
                 </InputCont>
-                <InputCont>
-                <InName>Job-title</InName>
-                <Input1 type="text"/>
+                <InputCont className="line1">
+                <label className={`label ${isActive("jobTitle") ? "active" : ""}`}>Job-title</label>
+                <input type="text"  name="jobTitle" value={fields.jobTitle} onChange={handleInputChange} />
                 </InputCont>
-                <InputCont>
-                <InName>Organization:</InName>
-                <Input1 type="text"/>
+                <InputCont className="line1">
+                <label className={`label ${isActive("organization") ? "active" : ""}`}>Organization:</label>
+                <input type="text"  name="organization" value={fields.organization} onChange={handleInputChange} />
                 </InputCont>
-                <InputCont1>
-                <InName>Email-Id:</InName>
-                <Input2 type="email"/>
-                </InputCont1>
-                <InputCont1>
-                <InName>Select Your Interest:</InName>
-                <Selection1 name="interest" class="form-control" required="required">
+                <InputCont className="line2">
+                <label className={`label ${isActive("emailId") ? "active" : ""}`}>Email-Id:</label>
+                <input type="email" name="emailId" value={fields.emailId} onChange={handleInputChange} />
+                </InputCont>
+                <InputCont className="line2">
+                <label className={`label ${isActive("selectOption") ? "active" : ""}`}>Select Your Interest:</label>
+                <Selection1>
 						      <option style={{display:"none"}} className="blank_option"></option>
 						      <option value="exhibitor">Exhibitor</option>
 						      <option value="speaking">Speaker</option>
@@ -422,8 +483,10 @@ const ContactUs = () => {
 						      <option value="supporting-partner">Supporting Partner</option>
 						      <option value="others">Others</option>
                 </Selection1>
-                </InputCont1>
+                </InputCont>
+                <InputCont className="line2">
                 <Textarea rows="8" placeholder="Message" />
+                </InputCont>
                 <Button type="submit">Submit</Button>
               </Form>
             </FormContainer>
