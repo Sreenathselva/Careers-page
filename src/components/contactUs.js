@@ -1,7 +1,6 @@
 import React,{useState} from "react";
 import styled from "styled-components";
 import Intro from "./map.tsx";
-import worldmap from "../images/world_map.webp"
 // Styled Components
 
 // Container for the entire Contact Us section
@@ -30,7 +29,7 @@ const ContactTop = styled.div`
   flex-direction: column;
   gap: 1vw;
 `;
-const ContactPatch = styled.div`
+export const ContactPatch = styled.div`
   width: 70vw;
   height: 70vw;
   border-radius: 50%;
@@ -440,7 +439,6 @@ const ContactUs = () => {
                   <div className="name">Location</div>
                   <div className="des">#32, Chinmaya Mission Hospital Road, <br /> Indiranagar II Stage, Bangalore – 560 038, India</div>
                 </div>
-                
               </div>
               
             </Contact>

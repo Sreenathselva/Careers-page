@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 import logo from "../images/traicon_logo.svg"
 // import { NavContainer, NavLogo, NavMenu, NavItem, NavLink } from "./Navbar.styles";
 // Navbar container //
