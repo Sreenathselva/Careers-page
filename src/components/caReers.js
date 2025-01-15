@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { ContactPatch } from "../components/contactUs";
 import Gallery from "../components/gaLlery";
 import team from "../images/team.webp";
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
 // Styled Components
 
@@ -14,8 +15,8 @@ const CareersContainer = styled.section`
   justify-content: center;
   flex-direction: column;
   margin: 0 auto;
-  background-color: #040f16;
   overflow: hidden;
+
 `;
 const CareerTop = styled.div`
   position: relative;
@@ -34,6 +35,17 @@ const CareerTop = styled.div`
     z-index: 0;
     background-color: #00000086;
   }
+
+  @media screen and (max-width: 500px){
+   position: relative;
+   width: 100%;
+   height: 50vw;
+}
+@media screen and (min-width: 768px) and (max-width: 1024px){
+   position: relative;
+   width: 100%;
+   height: 50vw;
+}
 `;
 const Title = styled.h1`
   font-size: 4vw;
@@ -42,6 +54,12 @@ const Title = styled.h1`
   font-family: "montserrat";
   color: #fff;
   z-index: 3;
+
+
+  
+  @media screen and (max-width: 450px){
+    font-size: 6vw;
+  }
 `;
 export const Direct = styled.ul`
   width: auto;
@@ -63,6 +81,10 @@ export const Direct = styled.ul`
   .li-active {
     color: #2f9cda;
   }
+  @media screen and (max-width:500px) {
+    font-size: 3vw;
+    height: auto;
+  }
 `;
 const CareerCont = styled.div`
   width: 80%;
@@ -74,6 +96,8 @@ const CareerCont = styled.div`
   .career-topic {
     display: flex;
     padding: 2vw 0;
+    gap: 4vw;
+    flex-direction: column;
   }
   .car-img {
     width: 100%;
@@ -84,6 +108,16 @@ const CareerCont = styled.div`
     padding: 2vw 0;
     margin: 2vw 0 4vw;
     border-radius: 2vw;
+  }
+  @media screen and (max-width:500px){
+    width:90%;
+
+    .car-img {
+      width: 100%;
+        height: 70vw;
+        background-size: 165%;
+        background-position: center;
+    }
   }
 `;
 const CareerHead = styled.h2`
@@ -96,6 +130,11 @@ const CareerHead = styled.h2`
   span {
     color: #2f9cda;
   }
+  @media screen and (max-width:500px){
+    width: 100%;
+    font-size: 5vw;
+    line-height: 5.2vw;
+  }
 `;
 const Description = styled.p`
   width: 50%;
@@ -107,12 +146,21 @@ const Description = styled.p`
   margin: 0;
   color: #fff;
   font-family: "source sans 3";
+
+  @media screen and (max-width:500px){
+    width:100%;
+    font-size: 3.3vw;
+  }
 `;
 const JobHead = styled.h2`
   font-size: 2.5vw;
   color: #fff;
   font-family: "montserrat";
   font-weight: 900;
+
+  @media screen and (max-width:500px){
+    font-size: 5vw;
+  }
 `;
 const JobList = styled.div`
   display: flex;
@@ -131,6 +179,8 @@ const JobCard = styled.div`
   text-align: start;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease;
+
+
 
   &:hover {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -201,16 +251,49 @@ const JobCard = styled.div`
       background-color: #0056b3;
     }
   }
+  @media screen and (max-width:500px){
+    padding: 3vw;
+    width: 100%;
+    h3{
+      width: 80%;
+    }
+    .job-top {
+      font-size: 4vw;
+    }
+    .job-des {
+    font-size: 3.4vw;
+    line-height: 3.4vw;
+    padding: 2vw 0;
+    }
+    .job-time {
+    font-size: 3.4vw;
+    padding: 1vw 0;
+    }
+    .job-location {
+      padding: 0vw 0 2vw;
+    }
+    .arrow{
+      padding: 1.5vw;
+    }
+    .arrow i {
+      font-size: 4vw;
+    }
+  }
 `;
 const FormCont = styled.div`
   width: 66vw;
   padding: 2vw;
-  border-radius: 0.5vw;
+  border-radius: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   background-color: #f9f9f9;
   margin: 0 0 2vw 0;
+  
+  @media screen and (max-width:500px){
+    width: 90%;
+    padding: 0;
+  }
 `;
 const CareerForm = styled.div`
   display: flex;
@@ -227,6 +310,7 @@ const CareerForm = styled.div`
     flex-wrap: wrap;
     justify-content: space-between;
     gap: 2vw;
+
   }
   .fileUpload {
     width: 20vw;
@@ -248,6 +332,15 @@ const CareerForm = styled.div`
     width: 10vw;
     height: 1.5vw;
   }
+  @media screen and (max-width:500px){
+    .fileUpload{
+      width: 100%;
+      font-size: 3vw;
+    }
+    .input-cont {
+    width: 100%;
+    }
+  }
 `;
 
 const FormHead = styled.h2`
@@ -256,6 +349,10 @@ const FormHead = styled.h2`
   color: #2f9cda;
   font-family: 'montserrat';
   font-weight: 700;
+
+  @media screen and (max-width:500px){
+    font-size: 5vw;  
+  }
 `;
 
 const InputField = styled.input`
@@ -267,6 +364,9 @@ const InputField = styled.input`
   border-radius: 4px;
   font-size: 14px;
   margin: 0;
+  @media screen and (max-width: 500px){
+    width: 100%;
+  }
 `;
 
 const TextArea = styled.textarea`
@@ -299,6 +399,14 @@ const SubmitButton = styled.div`
   button:hover{
     background-color: #2489c2;
   }
+  @media screen and (max-width:500px) {
+    button{
+    width: 35vw;
+    height: 10vw;
+    background-color: #2f9cda;
+    border-radius: 1vw;
+    }
+  }
 `;
 
 const GalleryContainer = styled.div`
@@ -317,6 +425,11 @@ const GalleryContainer = styled.div`
     font-weight: 900;
     color: #fff;
   }
+  @media screen and (max-width:500px){
+     .gallery-head {
+      font-size: 6vw;
+  }
+}
 `;
 
 // Sample job data

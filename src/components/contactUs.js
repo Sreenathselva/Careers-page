@@ -28,6 +28,12 @@ const ContactTop = styled.div`
   justify-content: center;
   flex-direction: column;
   gap: 1vw;
+
+  @media screen and (max-width: 500px){
+   position: relative;
+   width: 100%;
+   height: 50vw;
+}
 `;
 export const ContactPatch = styled.div`
   width: 70vw;
@@ -66,17 +72,25 @@ const ContactHead = styled.h1`
   span{
     color: #2f9cda;
   }
+  @media screen and (max-width: 500px){
+    font-size: 6vw;
+  }
 `;
 
 const ContactContainer = styled.div`
   width: 80%;
-  height: 45vw;
-  /* background-color: #040f16; */
+  height: auto;
   z-index: 4;
   display: flex;
   transform: translateY(-6vw);
   border-radius: 1vw;
   background-image: url({worldmap});
+
+  @media screen and (max-width:500px){
+    width: 100%;
+    flex-direction: column;
+    gap: 15vw;
+  }
 `;
 const ContactLeft = styled.div`
   width: 60%;
@@ -84,7 +98,10 @@ const ContactLeft = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  /* border-right: 1px solid #ddd; */
+
+  @media screen and (max-width:500px){
+    width: 100%;
+  }
 `;
 const ContactRight = styled.div`
   width: 40%;
@@ -92,36 +109,59 @@ const ContactRight = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
+  
+  @media screen and (max-width:500px){
+    width: 100%;
+  }
 `;
 const ContactCont = styled.div`
       width: 90%;
-    height: 42vw;
+    height: auto;
     display: flex;
     flex-direction: column;
     justify-content: start;
     gap: 1vw;
+
+    @media screen and (max-width: 500px){
+    gap: 3vw;
+  }
 `;
 const CsubHead = styled.h2`
   font-size: 2.5vw;
   font-family: "montserrat";
   color: #2f9cda;
   margin: 0;
+
+  @media screen and (max-width: 500px){
+    font-size: 4.5vw;
+  }
 `;
 const CsubDes = styled.div`
   font-size: 1.2vw;
   color:#fff;
+  @media screen and (max-width: 500px){
+    font-size: 3.4vw;
+  }
 `;
 
 // form
 const FormContainer = styled.div`
   width: 100%;
   border-radius: 8px;
+
+  @media screen and (max-width: 500px){
+    gap: 3vw;
+  }
 `;
 
 const InputCont = styled.div` 
   position: relative;
   width: 47.5%;
   background-color: #202020;
+
+  @media screen and (max-width: 500px){
+    width: 100%;
+  }
 `;
 const Form = styled.form`
   display: flex;
@@ -142,6 +182,9 @@ const Form = styled.form`
   opacity: .8;
   color: #cdcdcd;
   transition: all ease .5s;
+  }
+  @media screen and (max-width: 500px){
+    row-gap: 6vw;
   }
 
   .line1 input{ 
@@ -183,6 +226,22 @@ const Form = styled.form`
   left: 0.1vw;
   font-size: 1vw;
 }
+@media screen and (max-width: 500px){
+  row-gap: 6vw;
+  label{
+    font-size: 4vw;
+  }
+   .active{
+    font-size: 3vw;
+    top: -4vw;
+   }
+  .line2 input,.line1 input{
+    padding: 1.5vw 0;
+   }
+   select{
+    padding: 2vw 0;
+   }
+  }
 `;
 
 
@@ -236,6 +295,9 @@ const Button = styled.button`
 
   &:hover {
     background: #2489c2;
+  }
+  @media screen and (max-width: 500px){
+    padding: 2vw;
   }
 `;
 
@@ -321,7 +383,30 @@ const Contact = styled.div`
   .loc{
     width: 100%;
   }
-
+  @media screen and (max-width:500px){
+    .connect{
+      height: auto;
+    }
+    .connect-box{
+      width: 44.5vw;
+      height: 40vw;
+      gap: 2vw;
+    }
+    .icon {
+    width: auto;
+    height: auto;
+    font-size: 8vw;
+    }
+    .name {
+    font-size: 3vw;
+    }
+    .des {
+    font-size: 3.3vw;
+    }
+    .loc{
+      width: 100%;
+    }
+  }
 `;
 
 // ContactUs Component
